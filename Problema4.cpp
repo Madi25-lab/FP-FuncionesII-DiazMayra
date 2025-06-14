@@ -12,20 +12,19 @@ int main (){
 	cin>> SC;
 	cout<< "Ingrese el tercer coeficiente: " ;
 	cin>> TC;
-	Dis=pow(SC,2)-4*PC*TC;
-	X1= (-SC+sqrt(Dis))/(2*PC);
-	X2= (-SC-sqrt(Dis))/(2*PC);
-	X= -SC/(2*PC);
-	I1= -SC/(2*PC);
-    I2= sqrt(-Dis)/(2*PC);
-        
+	Dis=pow(SC,2)-4*PC*TC; 
 	if (Dis>0){
+		X1= (-SC+sqrt(Dis))/(2*PC);
+	    X2= (-SC-sqrt(Dis))/(2*PC);
 		cout<< "Presenta raices reales diferentes: " << endl;
-		cout<< "La primera raiz es: "<< X1<<endl;
+	    cout<< "La primera raiz es: "<< X1<<endl;
 		cout<< "La segunda raiz es: " << X2 <<endl;
     }else if (Dis==0) {
+	    X= -SC/(2*PC);
     	cout<< "Presenta raices reales iguales: " << X << endl;
 	}else{
+		I1= -SC/(2*PC);
+        I2= sqrt(-Dis)/(2*PC);
         cout << "Presenta raices complejas: "<<endl;
 		cout<< "La primera raiz es: " << I1<<"+"<<I2<<"i"<<endl;
         cout << "La segunda raiz es: "<<I1<<"-"<<I2<<"i"<<endl;
