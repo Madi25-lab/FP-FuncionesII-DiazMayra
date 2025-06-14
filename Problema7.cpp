@@ -3,24 +3,12 @@
 #include <ctime>
 
 using namespace std;
-
-    void DADO_1(){
-    }
     
-    void DADO_2(){
-	}
-	
-    void DADO_3(){
-	}
-	
-    void DADO_4(){
-	}
-	
-    void DADO_5(){
-	}
-	
-    void DADO_6(){
-	}
+    int NumeroAzar(){
+	int NUMERO_ALEATORIO;
+	NUMERO_ALEATORIO= rand()%6+1;
+	return NUMERO_ALEATORIO;
+    }
 	
 int main() {
     srand(time(0));
@@ -33,28 +21,49 @@ int main() {
 	cout<< "START GAME"<< endl;
 	cout<<"Presiona enter para comenzar el juego: ";
 	cin.get();
-	system("cls");	
+    system("cls");	
 
 	do{
 		cout<<Jugadas++<<"-"<<"Ronda: ";
 		cin.get();
 		
-		cout << "Jugador 1, presione Enter";
+		cout << "Jugador 1, presione Enter ";
         cin.get();
-        Jugador1 = rand() % 6 + 1;
-        cout << "JUGADOR 1, el numero de que le salio es: " <<Jugador1<<endl;
+        Jugador1 = NumeroAzar();
+        cout << "JUGADOR 1, el numero que le salio es:" <<Jugador1<<endl;
 
         cout << "Jugador 2, presione Enter ";
         cin.get();
-        Jugador2 = rand() % 6 + 1;
-        cout << "JUGADOR 2, el numero de que le salio es: " << Jugador2<< endl;
+        Jugador2 = NumeroAzar();
+        cout << "JUGADOR 2, el numero que le salio es:" << Jugador2<< endl;
 		
 		if(Jugador1>Jugador2){
-            cout << "El jugador 1 ha ganado 1 punto"<<endl;
+            cout << "VICTORIA para el jugador 1"<<endl;
 			Gano1++;
 			
         }else if(Jugador1<Jugador2){
         	Gano2++;
-            cout << "El jugador 2 ha ganado 1 punto"<<endl;
+            cout << "VICTORIA para el jugador 2"<<endl;
             
-       
+        }else if (Jugador1==Jugador2){
+        	cout<<"EMPATE"<<endl;
+		}
+		
+		cout << "Partidas ganadas JUGADOR 1: " << Gano1 << endl;
+        cout << "Partidas ganadas JUGADOR 2: " << Gano2 << endl;
+        cout << "Presione Enter para continuar";
+        cin.get();
+        system("cls");
+		
+	}while(Gano1<3 && Gano2<3);
+	
+	if(Gano1>Gano2){
+		cout<<"El jugador 1 GANO"<<endl;
+	} else{
+		cout<<"El jugador 2 GANO"<<endl;
+	}
+	
+	cout<< "GAME OVER" << endl;
+	
+	return 0;
+}
